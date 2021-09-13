@@ -1,16 +1,19 @@
+const rectangle = require('./rectangle');
 var rect=require('./rectangle');
 
 function solve(x,y)
 {
-    if(x<=0 || y<=0)
-    {
-        console.log("Rectangle has negative lengths");
-    }
-    else
-    {
-        console.log("Perimeter: "+ rect.perimeter(x,y));
-        console.log("Perimeter: "+ rect.area(x,y));
-    }
+    rect(x,y,(err,rectangle)=>{
+        if(err)
+        {
+            console.log(err.message);
+        }
+        else
+        {
+            console.log("area " + rectangle.area());
+            console.log("perimeter " + rectangle.perimeter());
+        }
+    });
 }
 
 solve(1,2);
